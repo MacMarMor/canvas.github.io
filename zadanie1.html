@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style.css" title="stylowo">
+	</head>
+	<body>
+		<canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000;">
+			<script>
+				var c = document.getElementById("myCanvas");
+				var ctx = c.getContext("2d");
+				var colourGreen = 'green';
+				var colourBlue = 'blue'
+				ctx.beginPath();
+			
+				ctx.arc(400,300,80,0,2*Math.PI);
+				ctx.fillStyle =  colourGreen;
+				ctx.fill();
+				setInterval(myColour1, 1000);
+				setInterval(myColour2, 2000);
+				
+				ctx.stroke();
+				
+				function myColour1(){
+					ctx.fillStyle = colourBlue;
+					ctx.fill();
+					
+				}
+				function myColour2(){
+					ctx.fillStyle = colourGreen;
+					ctx.fill();
+				}
+			</script>
+		</canvas>
+	</body>
+</html>
