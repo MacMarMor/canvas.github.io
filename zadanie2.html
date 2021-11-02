@@ -6,18 +6,36 @@
 	<body>
 		<canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000;">
 			<script>
-				var c = document.getElementById("myCanvas1");
-				var ctx = c.getContext("2d");
-				var colourGreen = 'green';
-				var colourBlue = 'blue';
-				
-				ctx.arc(ctx.arc(400,300,80,0,2*Math.PI););
-				var gradient = ctx.createLinearGradient((175,75,0,175,75,100);
-				ctx.beginPath();
-				gradient.addColorStop(0, 'green');
-				gradient.addColorStop(1, 'blue');
-				ctx.fillStyle =  gradient;
+				var canvas = document.getElementById('myCanvas');
+				var ctx = canvas.getContext('2d');
+
+				var x = 400,
+					y = 300,
+					innerRadius = 5,
+					outerRadius = 80,
+					radius = 80;
+
+				ctx.arc(x, y, radius, 0, 2 * Math.PI);
 				ctx.fill();
+				setInterval(myColour1, 1000);
+				setInterval(myColour2, 2000);
+
+
+				function myColour1(){
+					var gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
+					gradient.addColorStop(0, 'blue');
+					gradient.addColorStop(1, 'green');
+					ctx.fillStyle = gradient;
+					ctx.fill();
+					
+				}
+				function myColour2(){
+					var gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
+					gradient.addColorStop(0, 'green');
+					gradient.addColorStop(1, 'blue');
+					ctx.fillStyle = gradient;
+					ctx.fill();
+				}
 			
 			</script>
 		</canvas>
